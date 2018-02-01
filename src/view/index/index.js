@@ -1,8 +1,6 @@
+import "babel-polyfill";
+
 import "./style.css";
+import Game from "./Game";
 
-const gameCanvasEl = document.querySelector("#gameCanvas");
-
-gameCanvasEl.width = window.innerWidth;
-gameCanvasEl.height = window.innerHeight;
-
-const ctx = gameCanvasEl.getContext("2d");
+window.game = new Game();

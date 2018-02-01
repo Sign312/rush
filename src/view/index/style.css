@@ -1,8 +1,6 @@
 body {
   margin: 0;
 }
-
-#gameCanvas {
-  /* background-color: #000; */
-  /* border: 1px solid #000; */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
