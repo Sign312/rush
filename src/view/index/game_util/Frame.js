@@ -10,12 +10,12 @@ class Frame {
       topY: 80
     });
     this.clip2 = new Clip({
-      speed: 1,
+      speed: 1.2,
       marginCenter: 40,
       topY: 180
     });
     this.clip3 = new Clip({
-      speed: 1,
+      speed: 0.8,
       marginCenter: 100,
       topY: 250
     });

@@ -3,7 +3,7 @@ import clockPng from "../../../image/clock.png";
 import images from "../game_util/images";
 import paint from "../game_util/paint";
 
-const flyBallSpeed = 8;
+const flyBallSpeed = 12;
 const ball1Speed = 2;
 
 class Shoot {
