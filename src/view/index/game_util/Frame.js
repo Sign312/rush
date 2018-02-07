@@ -20,6 +20,8 @@ class Frame {
       topY: 250
     });
     this.shoot = new Shoot();
+
+    this.createAudioEl();
   }
 
   judge(animate) {
@@ -74,8 +76,17 @@ class Frame {
     return false;
   }
 
+  createAudioEl() {
+    this.videoEl = document.createElement("audio");
+    this.videoEl.src = "http://public.flypie.cn/na/music/gameover.wav";
+    this.videoEl.style.display = "none";
+    document.body.appendChild(this.videoEl);
+  }
+
   singleFrame(animate) {
-    this.judge(animate);
+    if (this.judge(animate)) {
+      this.videoEl.play();
+    }
     paint.clear();
     this.clip1.render();
     this.clip1.update();

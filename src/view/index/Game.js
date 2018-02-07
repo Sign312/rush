@@ -9,12 +9,12 @@ class Game {
   }
 
   async init() {
-    const canvasEl = document.querySelector("#gameCanvas");
+    this.canvasEl = document.querySelector("#gameCanvas");
 
-    let width = (canvasEl.width = window.innerWidth);
-    let height = (canvasEl.height = window.innerHeight);
+    let width = (this.canvasEl.width = window.innerWidth);
+    let height = (this.canvasEl.height = window.innerHeight);
 
-    paint.init({ width, height, canvasEl });
+    paint.init({ width, height, canvasEl: this.canvasEl });
 
     await images.init();
     this.start();

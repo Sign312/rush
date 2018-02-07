@@ -15,7 +15,16 @@ class Shoot {
     document.querySelector("#gameCanvas").addEventListener("click", () => {
       this.flyBalls.push(this.ball1);
       this.ball1 = new Ball();
+      this.videoEl.play();
     });
+    this.createAudioEl();
+  }
+
+  createAudioEl() {
+    this.videoEl = document.createElement("audio");
+    this.videoEl.src = "http://public.flypie.cn/na/music/shoot.wav";
+    this.videoEl.style.display = "none";
+    document.body.appendChild(this.videoEl);
   }
 
   render() {
