@@ -4,20 +4,34 @@ import images from "../game_util/images";
 import paint from "../game_util/paint";
 
 const flyBallSpeed = 12;
-const ball1Speed = 2;
+const storeBallSpeed = 2;
 
 class Shoot {
   constructor() {
-    this.ball1 = new Ball();
+    this.storeBalls = [new Ball(), new Ball(), new Ball()];
     this.flyBalls = [];
     this.score = 0;
     window.shoot = this;
-    document.querySelector("#gameCanvas").addEventListener("click", () => {
-      this.flyBalls.push(this.ball1);
-      this.ball1 = new Ball();
-      this.videoEl.play();
-    });
+    document
+      .querySelector("#gameCanvas")
+      .addEventListener("click", this.onClick.bind(this));
     this.createAudioEl();
+  }
+
+  onClick() {
+    let ball = this.storeBalls[this.storeBalls.length - 1];
+    this.storeBalls = [
+      new Ball(),
+      ...this.storeBalls.slice(0, this.storeBalls.length - 1)
+    ];
+    this.flyBalls.push(ball);
+    this.audioRePlay();
+  }
+
+  audioRePlay() {
+    // this.videoEl.pause();
+    // this.videoEl.currentTime = 0;
+    this.videoEl.play();
   }
 
   createAudioEl() {
@@ -28,14 +42,15 @@ class Shoot {
   }
 
   render() {
-    this.ball1.render();
+    for (let ball of this.storeBalls) {
+      ball.render();
+    }
     for (let ball of this.flyBalls) {
       ball.render();
     }
   }
 
   reset() {
-    this.ball1.reset();
     this.score = 0;
     this.flyBalls = [];
   }
@@ -45,8 +60,12 @@ class Shoot {
   }
 
   update() {
-    if (this.ball1.centerHeight > paint.height - 40) {
-      this.ball1.centerHeight -= ball1Speed;
+    for (let key in this.storeBalls) {
+      let ball = this.storeBalls[key];
+      let standline = paint.height - ball.r - ball.r * 2 * key - 30;
+      if (ball.centerHeight > standline) {
+        ball.centerHeight -= storeBallSpeed;
+      }
     }
     this.flyBalls = this.flyBalls.filter(ball => {
       if (ball.centerHeight < -ball.r) {

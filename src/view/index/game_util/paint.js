@@ -1,6 +1,8 @@
 let bgColor = "#39a1d8";
 let defaultColor = "#000";
 
+import images from "../game_util/images";
+
 class Paint {
   init({ canvasEl, width, height }) {
     this.canvasEl = canvasEl;
@@ -12,7 +14,7 @@ class Paint {
   }
 
   clear() {
-    this.fillRect(0, 0, this.width, this.height, bgColor);
+    this.drawImage(images.backgroundPng, 0, 0, this.width, this.height);
   }
 
   drawImage(img, x, y, width, height) {

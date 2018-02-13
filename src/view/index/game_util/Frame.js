@@ -5,19 +5,22 @@ import Shoot from "../game_part/Shoot";
 class Frame {
   constructor() {
     this.clip1 = new Clip({
-      speed: 1,
+      speed: 1.2,
       marginCenter: 80,
-      topY: 80
+      topY: 100,
+      flag: true
     });
     this.clip2 = new Clip({
-      speed: 1.2,
+      speed: 1,
       marginCenter: 40,
-      topY: 180
+      topY: 180,
+      flag: false
     });
     this.clip3 = new Clip({
       speed: 0.8,
       marginCenter: 100,
-      topY: 250
+      topY: 250,
+      flag: false
     });
     this.shoot = new Shoot();
 

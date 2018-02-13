@@ -9,14 +9,14 @@ class Game {
   }
 
   async init() {
+    await images.init();
+
     this.canvasEl = document.querySelector("#gameCanvas");
 
     let width = (this.canvasEl.width = window.innerWidth);
     let height = (this.canvasEl.height = window.innerHeight);
 
     paint.init({ width, height, canvasEl: this.canvasEl });
-
-    await images.init();
     this.start();
   }
 

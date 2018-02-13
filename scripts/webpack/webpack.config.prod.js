@@ -3,6 +3,7 @@ let path = require("path");
 let webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const minpic = require("minpic");
 
 let entryName = process.wpOption.entryName || "index";
 
@@ -93,7 +94,10 @@ module.exports = {
         NODE_ENV: JSON.stringify("production")
       }
     }),
-    new OptimizeCssAssetsPlugin()
+    new OptimizeCssAssetsPlugin(),
+    new minpic({
+      source: "src/image"
+    })
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: "vendor",
     //   filename: "js/vendor.bundle.js"

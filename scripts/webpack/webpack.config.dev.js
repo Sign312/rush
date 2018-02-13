@@ -50,7 +50,7 @@ module.exports = {
             loader: require.resolve("url-loader"),
             options: {
               limit: 8192,
-              name: `asset/image/[hash:8].[name].[ext]`
+              name: `asset/image/[name].[ext]`
             }
           }
         ]
