@@ -42,6 +42,7 @@ class Shoot {
   }
 
   render() {
+    paint.scoreText(this.score, 10, 30);
     for (let ball of this.storeBalls) {
       ball.render();
     }

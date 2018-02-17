@@ -27,6 +27,16 @@ class Paint {
     this.ctx.fillRect(x, y, width, height);
     this.ctx.closePath();
   }
+
+  scoreText(score, x, y) {
+    this.ctx.beginPath();
+    this.ctx.fillStyle = "#894400";
+    this.ctx.font = "30px Georgia";
+    this.ctx.strokeStyle = "#fff";
+    this.ctx.lineWidth = 5;
+    this.ctx.strokeText(score, x, y);
+    this.ctx.fillText(score, x, y);
+  }
 }
 
 export default new Paint();
