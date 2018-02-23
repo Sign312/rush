@@ -1,5 +1,4 @@
 import Ball from "./Ball";
-import clockPng from "../../../image/clock.png";
 import images from "../game_util/images";
 import paint from "../game_util/paint";
 

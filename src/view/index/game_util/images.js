@@ -1,8 +1,8 @@
-import clockPng from "../../../image/clock.png";
-import clipLeftPng from "../../../image/clip_left.png";
-import clipRightPng from "../../../image/clip_right.png";
-import backgroundPng from "../../../image/background.png";
-import flagPng from "../../../image/flag.png";
+import clockPng from "../image/clock.png";
+import clipLeftPng from "../image/clip_left.png";
+import clipRightPng from "../image/clip_right.png";
+import backgroundPng from "../image/background.png";
+import flagPng from "../image/flag.png";
 
 class Images {
   load(img) {
